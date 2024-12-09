@@ -1,14 +1,10 @@
 import React from 'react';
-import './App.css';
-import Facebook from './components/Facebook';
+import FacebookLoginCheck from './components/Facebook';
 
 function App() {
   return (
-    <div className="App">
-        <p>
-          Facebook Authentication
-        </p>
-        <Facebook />
+    <div>
+      <FacebookLoginCheck />
     </div>
   );
 }

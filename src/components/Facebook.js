@@ -1,62 +1,63 @@
-import React, { Component } from 'react';
-import FacebookLogin from 'react-facebook-login';
+/* global FB */
+import React, { useEffect, useState } from 'react';
 
-export default class Facebook extends Component {
-  state = {
-    auth: false,
-    name: '',
-    picture: '',
-    email: '', // เพิ่ม state สำหรับ email
-    ageRange: '' // เพิ่ม state สำหรับอายุ
-  };
+const FacebookLoginCheck = () => {
+  const [userStatus, setUserStatus] = useState(null);
+  const [userInfo, setUserInfo] = useState(null); // เก็บข้อมูลผู้ใช้
 
-  responseFacebook = (response) => {
-    console.log(response);
-    if (response.status !== 'unknown') {
-      this.setState({
-        auth: true,
-        name: response.name,
-        picture: response.picture.data.url,
-        email: response.email, // เก็บ email
-        ageRange: response.age_range ? `${response.age_range.min}-${response.age_range.max}` : 'Unknown' // เก็บช่วงอายุ
-      });
+  useEffect(() => {
+    // ตรวจสอบสถานะการเข้าสู่ระบบเมื่อหน้าโหลด
+    FB.getLoginStatus((response) => {
+      statusChangeCallback(response);
+    });
+  }, []);
+
+  const statusChangeCallback = (response) => {
+    console.log('Login status:', response);
+    setUserStatus(response);
+
+    if (response.status === 'connected') {
+      fetchUserInfo(); // ดึงข้อมูลผู้ใช้
     }
   };
 
-  componentClicked = () => {
-    console.log('Facebook btn clicked');
+  const fetchUserInfo = () => {
+    FB.api('/me', { fields: 'name,email,picture' }, (response) => {
+      console.log('User info:', response);
+      setUserInfo(response); // เก็บข้อมูลผู้ใช้
+    });
   };
 
-  render() {
-    let facebookData;
+  const handleLogin = () => {
+    FB.login(
+      (response) => {
+        if (response.status === 'connected') {
+          statusChangeCallback(response);
+        }
+      },
+      { scope: 'email,public_profile' } // ขอสิทธิ์ดึงอีเมลและโปรไฟล์
+    );
+  };
 
-    this.state.auth
-      ? (facebookData = (
-          <div
-            style={{
-              width: '400px',
-              margin: 'auto',
-              background: '#f4f4f4',
-              padding: '20px',
-              color: '#000'
-            }}
-          >
-            <img src={this.state.picture} alt={this.state.name} />
-            <h2>Welcome {this.state.name}!</h2>
-            <p>Email: {this.state.email}</p>
-            <p>Age Range: {this.state.ageRange}</p>
+  return (
+    <div>
+      <h1>Facebook Login</h1>
+      {userStatus && userStatus.status === 'connected' ? (
+        userInfo ? (
+          <div>
+            <img src={userInfo.picture.data.url} alt={userInfo.name} />
+            <h2>Welcome, {userInfo.name}!</h2>
+            <p>Email: {userInfo.email}</p>
           </div>
-        ))
-      : (facebookData = (
-          <FacebookLogin
-            appId="1247680383201599"
-            autoLoad={true}
-            fields="name,picture,email,age_range" // เพิ่ม fields ที่ต้องการ
-            onClick={this.componentClicked}
-            callback={this.responseFacebook}
-          />
-        ));
+        ) : (
+          <p>Loading user info...</p>
+        )
+      ) : (
+        <p>Please log in</p>
+      )}
+      <button onClick={handleLogin}>Login with Facebook</button>
+    </div>
+  );
+};
 
-    return <>{facebookData}</>;
-  }
-}
+export default FacebookLoginCheck;
