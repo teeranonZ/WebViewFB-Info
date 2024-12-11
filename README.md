@@ -43,7 +43,7 @@ bash
 เพิ่มค่าดังนี้:
 
  ```bash
-HTTPS=true
+HTTPS=trueid
 ```
 
 เริ่มต้นเซิร์ฟเวอร์
@@ -115,6 +115,58 @@ facebook-webview-login/
 
 Login.js
 
+
+Facebook App ID เป็นค่าที่ใช้เชื่อมต่อกับ Facebook API เพื่อรับข้อมูลผู้ใช้ของคุณ
+
+การเปลี่ยนค่าในโค้ด
+ในไฟล์ Login.js ให้แก้ไข client_id ในลิงก์ URL:
+
+javascript
+```bash
+href="https://www.facebook.com/v17.0/dialog/oauth?client_id=<your-facebook-app-id>&redirect_uri=https://<your-ngrok-url>/user-info&response_type=token&scope=email,public_profile"
+```
+แทนที่ <your-facebook-app-id> ด้วย App ID ของคุณที่ได้จาก Facebook Developer Console.
+การตั้งค่าใน Facebook Developer Console
+ไปที่ Facebook Developer Console.
+เลือกแอปของคุณ และไปที่ Settings > Basic.
+ตรวจสอบและคัดลอก App ID.
+ใช้ App ID ที่คัดลอกมาแทนค่าในโค้ด.
+การเปลี่ยน ngrok URL
+ngrok ใช้สร้าง URL แบบ HTTPS สำหรับทดสอบแอปพลิเคชันใน WebView หรือ Facebook Login
+
+การเปลี่ยนค่าในโค้ด
+ในไฟล์ Login.js ให้แก้ไข redirect_uri ในลิงก์ URL:
+
+javascript
+Copy code
+```bash
+href="https://www.facebook.com/v17.0/dialog/oauth?client_id=<your-facebook-app-id>&redirect_uri=https://<your-ngrok-url>/user-info&response_type=token&scope=email,public_profile"
+แทนที่ <your-ngrok-url> 
+```
+ด้วย URL ใหม่ที่ได้จาก ngrok.
+การตั้งค่า ngrok
+เปิดเทอร์มินัลและรันคำสั่ง:
+```bash
+ngrok http https://localhost:3000
+```
+คัดลอก URL แบบ HTTPS ที่แสดงขึ้น เช่น:
+
+```bash
+https://1234abcd.ngrok.io
+```
+แทนที่ URL ในโค้ด redirect_uri ด้วย URL ที่คัดลอกมา.
+3. การอัปเดต Valid OAuth Redirect URIs
+Facebook กำหนดให้ URL ที่ใช้ต้องตรงกับค่าใน Valid OAuth Redirect URIs ที่กำหนดใน Facebook Developer Console
+
+ขั้นตอนการอัปเดต
+ไปที่ Facebook Developer Console.
+เลือกแอปของคุณ และไปที่ Facebook Login > Settings.
+ในส่วน Valid OAuth Redirect URIs:
+เพิ่ม URL ที่คุณใช้ในโค้ด เช่น:
+```bash
+https://1234abcd.ngrok.io/user-info
+```
+
 จัดการกระบวนการล็อกอินและดึง Access Token จาก Facebook
 UserInfo.js
 
@@ -146,6 +198,3 @@ const handleLogout = () => {
   window.location.href = "/";
 };
 ```
-หมายเหตุ : 
-ถ้าต้องการจะเพิ่มให้คนอื่นใช้งาน จะต้องตั้งค่าใน Facebook พร้อมตั้งค่าแอปใน [Facebook Developer Console](https://developers.facebook.com/)
-ในบทบาท เพื่อให้คนอื่นหรือผู้ใช้อื่นๆ Test การดึงข้อมูลมาแสดง โดยถ้าต้องการเปิดเป็นโหมด Live จำเป็นต้องลงบัญชีทางธุรกิจเพื่อ ที่จะให้facebookตรวจสอบเพื่อการตรวจสอบข้อมูลในรูปแบบธุรกิจ 
