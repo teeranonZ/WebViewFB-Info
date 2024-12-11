@@ -185,5 +185,5 @@ const handleLogout = () => {
   window.location.href = "/";
 };
 ```
-### หมายเหตุ: ถ้าต้องการให้ผู้ใช้รายอื่นใช้งาน ต้องไปตั้งค่าใน บทบาทใน บัญชีนักพัฒนาของ Facebook พร้อมตั้งค่าแอปใน [Facebook Developer Console](https://developers.facebook.com/)
+### หมายเหตุ: ถ้าต้องการให้ผู้ใช้รายอื่นใช้งาน ต้องไปตั้งค่าใน บทบาท บัญชีนักพัฒนาของ Facebook พร้อมตั้งค่าแอปใน [Facebook Developer Console](https://developers.facebook.com/)
 เพื่อที่จะเพิ่มRole ในการให้บทบาทของแค่คนที่เพิ่ม Tester แต่ถ้า ต้องการให้ใช้งานได้ทุกคนต้องไปเปิด Live (เปลี่ยนจากDevelopMode เป็น Live )  และต้องตั้งค่า ยืนยัน ธุรกิจของบริษัท หรือ Platform Page เพื่อที่จะได้เปิดเป็น Local โดยที่ ไม่ค้องเพิ่ม Role ให้เปิดเป็น Public Project 
