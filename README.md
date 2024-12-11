@@ -33,24 +33,25 @@
 ติดตั้ง Dependencies
 
 bash
-Copy code
+```bash
 npm install
 ตั้งค่าไฟล์ .env
 
 สร้างไฟล์ .env ในโฟลเดอร์หลักของโปรเจกต์
 เพิ่มค่าดังนี้:
 
-Copy code
+```bash
 HTTPS=trueid
 
 เริ่มต้นเซิร์ฟเวอร์
 
 bash
-Copy code
+```bash
 npm start
 
 คำสั่งเปิด Ngrok
 Copy code
+```bash
 ngrok http https://localhost:3000
 
 โครงสร้างโปรเจกต์
@@ -118,7 +119,7 @@ UserInfo.js
 การดึงข้อมูลโปรไฟล์
 
 javascript
-
+```bash
 Copy code
 const fetchUserInfo = async (token) => {
   try {
@@ -134,7 +135,7 @@ const fetchUserInfo = async (token) => {
 
 การออกจากระบบ
 javascript
-
+```bash
 Copy code
 const handleLogout = () => {
   setUserInfo(null);
