@@ -1,15 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client'; // ใช้ 'react-dom/client' แทน
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App"; // ตรวจสอบว่ามีไฟล์ App.js อยู่ในตำแหน่งนี้
 
-// ค้นหา root element
-const rootElement = document.getElementById('root');
+// ตรวจสอบว่ามี element ที่มี id="root" อยู่ในไฟล์ index.html
+const rootElement = document.getElementById("root");
 
-// ใช้ createRoot แทน render
-const root = ReactDOM.createRoot(rootElement);
-
-root.render(
+if (rootElement) {
+  const root = ReactDOM.createRoot(rootElement);
+  root.render(
     <React.StrictMode>
-        <App />
+      <App />
     </React.StrictMode>
-);
+  );
+} else {
+  console.error("Target container is not a DOM element. Check your index.html file.");
+}

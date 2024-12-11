@@ -1,12 +1,18 @@
-import React from 'react';
-import FacebookLoginCheck from './components/Facebook';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from './components/Login';
+import UserInfo from './components/UserInfo';
 
-function App() {
+
+const App = () => {
   return (
-    <div>
-      <FacebookLoginCheck />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login/>} />
+        <Route path="/user-info" element={<UserInfo />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
