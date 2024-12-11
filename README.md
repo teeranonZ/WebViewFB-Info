@@ -170,7 +170,7 @@ UserInfo.js
 ตัวอย่างโค้ด
 การดึงข้อมูลโปรไฟล์
 
-javascript
+
 
 ```bash
 const fetchUserInfo = async (token) => {
