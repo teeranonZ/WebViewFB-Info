@@ -1,70 +1,116 @@
-# Getting Started with Create React App
+ระบบล็อกอิน Facebook บน WebView
+โครงการนี้แสดงตัวอย่างการใช้ Facebook OAuth 2.0 เพื่อล็อกอินผู้ใช้งานและแสดงข้อมูลโปรไฟล์ใน WebView โดยใช้ React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+คุณสมบัติของระบบ
+ระบบล็อกอิน Facebook
 
-## Available Scripts
+รองรับการล็อกอินผ่าน Facebook OAuth 2.0
+รับ Access Token และข้อมูลโปรไฟล์ผู้ใช้ เช่น ชื่อ อีเมล รูปภาพ และ User ID
+แสดงข้อมูลโปรไฟล์ผู้ใช้
 
-In the project directory, you can run:
+แสดงข้อมูลโปรไฟล์ของผู้ใช้งานหลังจากล็อกอินสำเร็จ
+ระบบออกจากระบบ
 
-### `npm start`
+สามารถกดปุ่ม Log Out เพื่อลบข้อมูลและกลับไปยังหน้าล็อกอิน
+ออกแบบให้รองรับอุปกรณ์ทุกชนิด (Responsive Design)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+รองรับทั้งการใช้งานบนอุปกรณ์มือถือและเดสก์ท็อป
+การติดตั้งและการใช้งาน
+ความต้องการเบื้องต้น
+Node.js (แนะนำเวอร์ชัน 14 ขึ้นไป)
+บัญชีนักพัฒนาของ Facebook พร้อมตั้งค่าแอปใน Facebook Developer Console
+ขั้นตอนการติดตั้ง
+คัดลอกโครงการ
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+bash
+Copy code
+git clone https://github.com/your-username/facebook-webview-login.git
+cd facebook-webview-login
+ติดตั้ง Dependencies
 
-### `npm test`
+bash
+Copy code
+npm install
+ตั้งค่าไฟล์ .env
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+สร้างไฟล์ .env ในโฟลเดอร์หลักของโปรเจกต์
+เพิ่มค่าดังนี้:
+makefile
+Copy code
+REACT_APP_FACEBOOK_CLIENT_ID=your-facebook-client-id
+REACT_APP_REDIRECT_URI=https://your-redirect-url
+เริ่มต้นเซิร์ฟเวอร์
 
-### `npm run build`
+bash
+Copy code
+npm start
+โครงสร้างโปรเจกต์
+java
+Copy code
+facebook-webview-login/
+├── public/
+│   ├── index.html
+├── src/
+│   ├── components/
+│   │   ├── Login.js
+│   │   ├── UserInfo.js
+│   ├── App.js
+│   ├── index.js
+│   ├── Login.css
+│   ├── UserInfo.css
+├── .env
+├── package.json
+├── README.md
+การใช้งาน
+เปิดแอปพลิเคชันในเบราว์เซอร์.
+กดปุ่ม "Login" เพื่อเข้าสู่ระบบผ่าน Facebook.
+หลังล็อกอินสำเร็จ จะสามารถดูข้อมูลโปรไฟล์ (ชื่อ อีเมล User ID และรูปภาพ) ได้.
+กดปุ่ม "Log Out" เพื่อกลับไปยังหน้าล็อกอิน.
+การตั้งค่าใน Facebook Developer Console
+สร้าง Facebook App
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ไปที่ Facebook Developer Console
+สร้างแอปใหม่และตั้งค่าให้เป็น Web App
+ตั้งค่า OAuth Redirect URI
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ไปที่ Settings > Basic
+เพิ่มค่า REACT_APP_REDIRECT_URI ใน Valid OAuth Redirect URIs
+เปิดใช้งาน Permissions
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+เปิดสิทธิ์ email และ public_profile ใน Facebook Login Settings
+รับ App ID
 
-### `npm run eject`
+คัดลอก App ID และอัปเดตในตัวแปร REACT_APP_FACEBOOK_CLIENT_ID ในไฟล์ .env
+คอมโพเนนต์ที่สำคัญ
+Login.js
+จัดการกระบวนการล็อกอินและดึง Access Token จาก Facebook.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+UserInfo.js
+ดึงและแสดงข้อมูลโปรไฟล์ผู้ใช้งานจาก Facebook.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Dependencies
+React: ใช้สำหรับพัฒนา UI
+React Router DOM: ใช้สำหรับการนำทางในแอป
+Facebook Graph API: ใช้สำหรับดึงข้อมูลโปรไฟล์ผู้ใช้
+ตัวอย่างโค้ด
+การดึงข้อมูลโปรไฟล์
+javascript
+Copy code
+const fetchUserInfo = async (token) => {
+  try {
+    const response = await fetch(
+      `https://graph.facebook.com/me?fields=id,name,picture,email&access_token=${token}`
+    );
+    const data = await response.json();
+    setUserInfo(data);
+  } catch (error) {
+    console.error("Error fetching user info:", error);
+  }
+};
+การออกจากระบบ
+javascript
+Copy code
+const handleLogout = () => {
+  setUserInfo(null);
+  window.location.href = "/";
+};
