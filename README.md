@@ -1,31 +1,35 @@
-ระบบล็อกอิน Facebook บน WebView
+# Facebook WebView Info
+
 โครงการนี้แสดงตัวอย่างการใช้ Facebook OAuth 2.0 เพื่อล็อกอินผู้ใช้งานและแสดงข้อมูลโปรไฟล์ใน WebView โดยใช้ React
 
-คุณสมบัติของระบบ
-ระบบล็อกอิน Facebook
+---
 
-รองรับการล็อกอินผ่าน Facebook OAuth 2.0
-รับ Access Token และข้อมูลโปรไฟล์ผู้ใช้ เช่น ชื่อ อีเมล รูปภาพ และ User ID
-แสดงข้อมูลโปรไฟล์ผู้ใช้
+## คุณสมบัติของระบบ
 
-แสดงข้อมูลโปรไฟล์ของผู้ใช้งานหลังจากล็อกอินสำเร็จ
-ระบบออกจากระบบ
+- **ระบบล็อกอิน Facebook**
+  - รองรับการล็อกอินผ่าน Facebook OAuth 2.0
+  - รับ Access Token และข้อมูลโปรไฟล์ผู้ใช้ เช่น ชื่อ, อีเมล, รูปภาพ และ User ID
+- **แสดงข้อมูลโปรไฟล์ผู้ใช้**
+  - แสดงข้อมูลโปรไฟล์ของผู้ใช้งานหลังจากล็อกอินสำเร็จ
+- **ระบบออกจากระบบ**
+  - สามารถกดปุ่ม Log Out เพื่อลบข้อมูลและกลับไปยังหน้าล็อกอิน
+- **ออกแบบให้รองรับอุปกรณ์ทุกชนิด (Responsive Design)**
+  - รองรับทั้งการใช้งานบนอุปกรณ์มือถือและเดสก์ท็อป
 
-สามารถกดปุ่ม Log Out เพื่อลบข้อมูลและกลับไปยังหน้าล็อกอิน
-ออกแบบให้รองรับอุปกรณ์ทุกชนิด (Responsive Design)
+---
 
-รองรับทั้งการใช้งานบนอุปกรณ์มือถือและเดสก์ท็อป
-การติดตั้งและการใช้งาน
-ความต้องการเบื้องต้น
-Node.js (แนะนำเวอร์ชัน 14 ขึ้นไป)
-บัญชีนักพัฒนาของ Facebook พร้อมตั้งค่าแอปใน Facebook Developer Console
-ขั้นตอนการติดตั้ง
-คัดลอกโครงการ
+## การติดตั้งและการใช้งาน
 
-bash
-Copy code
-git clone https://github.com/your-username/facebook-webview-login.git
-cd facebook-webview-login
+### ความต้องการเบื้องต้น
+- Node.js (แนะนำเวอร์ชัน 14 ขึ้นไป)
+- บัญชีนักพัฒนาของ Facebook พร้อมตั้งค่าแอปใน [Facebook Developer Console](https://developers.facebook.com/)
+
+### ขั้นตอนการติดตั้ง
+
+1. **คัดลอกโครงการ**
+   ```bash
+   git clone https://github.com/your-username/facebook-webview-login.git
+   cd facebook-webview-login
 ติดตั้ง Dependencies
 
 bash
@@ -35,7 +39,7 @@ npm install
 
 สร้างไฟล์ .env ในโฟลเดอร์หลักของโปรเจกต์
 เพิ่มค่าดังนี้:
-makefile
+env
 Copy code
 REACT_APP_FACEBOOK_CLIENT_ID=your-facebook-client-id
 REACT_APP_REDIRECT_URI=https://your-redirect-url
@@ -62,10 +66,10 @@ facebook-webview-login/
 ├── package.json
 ├── README.md
 การใช้งาน
-เปิดแอปพลิเคชันในเบราว์เซอร์.
-กดปุ่ม "Login" เพื่อเข้าสู่ระบบผ่าน Facebook.
-หลังล็อกอินสำเร็จ จะสามารถดูข้อมูลโปรไฟล์ (ชื่อ, อีเมล, User ID, และรูปภาพ) ได้.
-กดปุ่ม "Log Out" เพื่อกลับไปยังหน้าล็อกอิน.
+เปิดแอปพลิเคชันในเบราว์เซอร์
+กดปุ่ม "Login" เพื่อเข้าสู่ระบบผ่าน Facebook
+หลังล็อกอินสำเร็จ จะสามารถดูข้อมูลโปรไฟล์ (ชื่อ, อีเมล, User ID และรูปภาพ) ได้
+กดปุ่ม "Log Out" เพื่อกลับไปยังหน้าล็อกอิน
 การตั้งค่าใน Facebook Developer Console
 สร้าง Facebook App
 
@@ -83,15 +87,9 @@ facebook-webview-login/
 คัดลอก App ID และอัปเดตในตัวแปร REACT_APP_FACEBOOK_CLIENT_ID ในไฟล์ .env
 คอมโพเนนต์ที่สำคัญ
 Login.js
-จัดการกระบวนการล็อกอินและดึง Access Token จาก Facebook.
-
+จัดการกระบวนการล็อกอินและดึง Access Token จาก Facebook
 UserInfo.js
-ดึงและแสดงข้อมูลโปรไฟล์ผู้ใช้งานจาก Facebook.
-
-Dependencies
-React: ใช้สำหรับพัฒนา UI
-React Router DOM: ใช้สำหรับการนำทางในแอป
-Facebook Graph API: ใช้สำหรับดึงข้อมูลโปรไฟล์ผู้ใช้
+ดึงและแสดงข้อมูลโปรไฟล์ผู้ใช้งานจาก Facebook
 ตัวอย่างโค้ด
 การดึงข้อมูลโปรไฟล์
 javascript
@@ -114,3 +112,21 @@ const handleLogout = () => {
   setUserInfo(null);
   window.location.href = "/";
 };
+ใบอนุญาต
+โครงการนี้ใช้ใบอนุญาต MIT License
+
+markdown
+Copy code
+
+---
+
+### วิธีทำให้ Markdown ดูดีใน GitHub
+1. ใช้ `#` สำหรับหัวข้อใหญ่ เช่น ชื่อโปรเจกต์ (`# Facebook WebView Login`)
+2. ใช้ `##` และ `###` สำหรับหัวข้อย่อย
+3. ใช้เครื่องหมาย `-` หรือ `1.` สำหรับรายการย่อย
+4. ใช้ ``` สำหรับแทรกโค้ด เช่น `bash`, `javascript`, หรือ `env`
+
+เมื่อคุณใช้ Markdown นี้ใน GitHub หรือเครื่องมือที่รองรับ Markdown รูปแบบจะจัดเรียงเหมือนในภาพตัวอย่างที่คุณให้มา!
+
+
+
