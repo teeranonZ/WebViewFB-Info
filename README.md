@@ -43,7 +43,7 @@ bash
 เพิ่มค่าดังนี้:
 
  ```bash
-HTTPS=trueid
+HTTPS=true
 ```
 
 เริ่มต้นเซิร์ฟเวอร์
