@@ -24,7 +24,7 @@ Node.js (แนะนำเวอร์ชัน 14 ขึ้นไป)
 
 bash
 Copy code
-git clone https://github.com/your-username/facebook-webview-login.git
+git clone [https://github.com/your-username/facebook-webview-login.git](https://github.com/teeranonZ/demo1234.git)
 cd facebook-webview-login
 ติดตั้ง Dependencies
 
