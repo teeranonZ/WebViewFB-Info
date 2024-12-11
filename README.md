@@ -136,8 +136,10 @@ javascript
 Copy code
 ```bash
 href="https://www.facebook.com/v17.0/dialog/oauth?client_id=<your-facebook-app-id>&redirect_uri=https://<your-ngrok-url>/user-info&response_type=token&scope=email,public_profile"
-แทนที่ <your-ngrok-url> 
 ```
+แทนที่ <your-ngrok-url> 
+
+
 ด้วย URL ใหม่ที่ได้จาก ngrok.
 การตั้งค่า ngrok
 เปิดเทอร์มินัลและรันคำสั่ง:
