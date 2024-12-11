@@ -1,4 +1,4 @@
-# Facebook WebView Login
+# Facebook WebView Info
 
 โครงการนี้แสดงตัวอย่างการใช้ Facebook OAuth 2.0 เพื่อล็อกอินผู้ใช้งานและแสดงข้อมูลโปรไฟล์ใน WebView โดยใช้ React
 
@@ -39,15 +39,20 @@ npm install
 
 สร้างไฟล์ .env ในโฟลเดอร์หลักของโปรเจกต์
 เพิ่มค่าดังนี้:
-env
+
 Copy code
-REACT_APP_FACEBOOK_CLIENT_ID=your-facebook-client-id
-REACT_APP_REDIRECT_URI=https://your-redirect-url
+HTTPS=trueid
+
 เริ่มต้นเซิร์ฟเวอร์
 
 bash
 Copy code
 npm start
+
+คำสั่งเปิด Ngrok
+Copy code
+ngrok http https://localhost:3000
+
 โครงสร้างโปรเจกต์
 
 java
@@ -101,15 +106,19 @@ facebook-webview-login/
 เปิดสิทธิ์ email และ public_profile ใน Facebook Login Settings
 รับ App ID
 
-คัดลอก App ID และอัปเดตในตัวแปร REACT_APP_FACEBOOK_CLIENT_ID ในไฟล์ .env
-คอมโพเนนต์ที่สำคัญ
+คัดลอก App ID และอัปเดตในตัวแปร REACT_APP_FACEBOOK_CLIENT_ID ในไฟล์ 
+
 Login.js
+
 จัดการกระบวนการล็อกอินและดึง Access Token จาก Facebook
 UserInfo.js
+
 ดึงและแสดงข้อมูลโปรไฟล์ผู้ใช้งานจาก Facebook
 ตัวอย่างโค้ด
 การดึงข้อมูลโปรไฟล์
+
 javascript
+
 Copy code
 const fetchUserInfo = async (token) => {
   try {
@@ -122,8 +131,10 @@ const fetchUserInfo = async (token) => {
     console.error("Error fetching user info:", error);
   }
 };
+
 การออกจากระบบ
 javascript
+
 Copy code
 const handleLogout = () => {
   setUserInfo(null);
