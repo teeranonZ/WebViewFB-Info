@@ -31,27 +31,32 @@
    git clone https://github.com/your-username/facebook-webview-login.git
    cd facebook-webview-login
 ติดตั้ง Dependencies
-
 bash
-Copy code
-npm install
+
+ติดตั้งไลบรารีที่จำเป็น:
+   ```bash
+   npm install
+   ```
 ตั้งค่าไฟล์ .env
 
 สร้างไฟล์ .env ในโฟลเดอร์หลักของโปรเจกต์
 เพิ่มค่าดังนี้:
 
-Copy code
+ ```bash
 HTTPS=trueid
+```
 
 เริ่มต้นเซิร์ฟเวอร์
 
 bash
-Copy code
+ ```bash
 npm start
+```
 
-คำสั่งเปิด Ngrok
-Copy code
-
+คำสั่งเปิด Ngrok 
+```bash
+ngrok http https://localhost:3000
+```
 
 โครงสร้างโปรเจกต์
 
@@ -119,7 +124,7 @@ UserInfo.js
 
 javascript
 
-Copy code
+```bash
 const fetchUserInfo = async (token) => {
   try {
     const response = await fetch(
@@ -131,12 +136,13 @@ const fetchUserInfo = async (token) => {
     console.error("Error fetching user info:", error);
   }
 };
-
+```
 การออกจากระบบ
 javascript
 
-Copy code
+```bash
 const handleLogout = () => {
   setUserInfo(null);
   window.location.href = "/";
 };
+```
