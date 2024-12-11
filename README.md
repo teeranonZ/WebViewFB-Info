@@ -53,14 +53,9 @@ bash
 npm start
 ```
 
-คำสั่งเปิด Ngrok 
-```bash
-ngrok http https://localhost:3000
-```
 
 โครงสร้างโปรเจกต์
 
-java
 Copy code
 
 facebook-webview-login/
@@ -121,7 +116,7 @@ Facebook App ID เป็นค่าที่ใช้เชื่อมต่�
 การเปลี่ยนค่าในโค้ด
 ในไฟล์ Login.js ให้แก้ไข client_id ในลิงก์ URL:
 
-javascript
+
 ```bash
 href="https://www.facebook.com/v17.0/dialog/oauth?client_id=<your-facebook-app-id>&redirect_uri=https://<your-ngrok-url>/user-info&response_type=token&scope=email,public_profile"
 ```
@@ -155,7 +150,8 @@ ngrok http https://localhost:3000
 https://1234abcd.ngrok.io
 ```
 แทนที่ URL ในโค้ด redirect_uri ด้วย URL ที่คัดลอกมา.
-3. การอัปเดต Valid OAuth Redirect URIs
+
+ การอัปเดต Valid OAuth Redirect URIs
 Facebook กำหนดให้ URL ที่ใช้ต้องตรงกับค่าใน Valid OAuth Redirect URIs ที่กำหนดใน Facebook Developer Console
 
 ขั้นตอนการอัปเดต
