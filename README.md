@@ -1,4 +1,4 @@
-# Facebook WebView Info
+# Facebook WebView Login
 
 โครงการนี้แสดงตัวอย่างการใช้ Facebook OAuth 2.0 เพื่อล็อกอินผู้ใช้งานและแสดงข้อมูลโปรไฟล์ใน WebView โดยใช้ React
 
@@ -49,6 +49,7 @@ bash
 Copy code
 npm start
 โครงสร้างโปรเจกต์
+
 java
 Copy code
 facebook-webview-login/
@@ -65,6 +66,7 @@ facebook-webview-login/
 ├── .env
 ├── package.json
 ├── README.md
+
 การใช้งาน
 เปิดแอปพลิเคชันในเบราว์เซอร์
 กดปุ่ม "Login" เพื่อเข้าสู่ระบบผ่าน Facebook
@@ -112,21 +114,3 @@ const handleLogout = () => {
   setUserInfo(null);
   window.location.href = "/";
 };
-ใบอนุญาต
-โครงการนี้ใช้ใบอนุญาต MIT License
-
-markdown
-Copy code
-
----
-
-### วิธีทำให้ Markdown ดูดีใน GitHub
-1. ใช้ `#` สำหรับหัวข้อใหญ่ เช่น ชื่อโปรเจกต์ (`# Facebook WebView Login`)
-2. ใช้ `##` และ `###` สำหรับหัวข้อย่อย
-3. ใช้เครื่องหมาย `-` หรือ `1.` สำหรับรายการย่อย
-4. ใช้ ``` สำหรับแทรกโค้ด เช่น `bash`, `javascript`, หรือ `env`
-
-เมื่อคุณใช้ Markdown นี้ใน GitHub หรือเครื่องมือที่รองรับ Markdown รูปแบบจะจัดเรียงเหมือนในภาพตัวอย่างที่คุณให้มา!
-
-
-
