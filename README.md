@@ -52,20 +52,35 @@ npm start
 
 java
 Copy code
+
 facebook-webview-login/
+
 ├── public/
+
 │   ├── index.html
+
 ├── src/
+
 │   ├── components/
+
 │   │   ├── Login.js
+
 │   │   ├── UserInfo.js
+
 │   ├── App.js
+
 │   ├── index.js
+
 │   ├── Login.css
+
 │   ├── UserInfo.css
+
 ├── .env
+
 ├── package.json
+
 ├── README.md
+
 
 การใช้งาน
 เปิดแอปพลิเคชันในเบราว์เซอร์
