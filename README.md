@@ -29,7 +29,7 @@
 1. **คัดลอกโครงการ**
    ```bash
    git clone https://github.com/teeranonZ/demo1234.git
-   cd facebook-webview-login
+   cd MY-APP123
 ติดตั้ง Dependencies
 bash
 
