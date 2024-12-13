@@ -28,7 +28,7 @@
 
 1. **คัดลอกโครงการ**
    ```bash
-   git clone https://github.com/your-username/facebook-webview-login.git
+   git clone https://github.com/teeranonZ/demo1234.git
    cd facebook-webview-login
 ติดตั้ง Dependencies
 bash
