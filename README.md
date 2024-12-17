@@ -155,7 +155,7 @@ https://1234abcd.ngrok.io/user-info
 ```
 
 จัดการกระบวนการล็อกอินและดึง Access Token จาก Facebook
-UserInfo.js
+###UserInfo.js
 
 ดึงและแสดงข้อมูลโปรไฟล์ผู้ใช้งานจาก Facebook
 ตัวอย่างโค้ด
@@ -176,14 +176,15 @@ const fetchUserInfo = async (token) => {
   }
 };
 ```
-การตั้งค่า Facebook Messenger Profile
+### การตั้งค่า Facebook Messenger Profile
 ไปที่ Facebook Developer Console.
 เลือก Graph API Explorer จากเมนู Tools.
 เลือก App ที่ต้องการใช้งาน.
-ใช้ Access Token เพื่อเรียก API.
-เพื่อเอามาใส่ <your-access-token>
+###ใช้ Access Token เพื่อเรียก API.
 
-วิธีเช็ค Page ID โดยใช้ Graph API Explorer:
+เพื่อเอามาใส่ ###<your-access-token>
+
+### วิธีเช็ค Page ID โดยใช้ Graph API Explorer:
 ไปที่ Graph API Explorer.
 
 เลือก App ที่ต้องการใช้งาน.
@@ -196,7 +197,7 @@ const fetchUserInfo = async (token) => {
 ```bash
 /me/accounts
 ```
-พื่อเอามาใส่ <your-page-id>
+เพื่อเอามาใส่ ###<your-page-id>
 
 แล้วจึงไปที่ Facebook Developer Console > Messenger > Messenger Profile.
 ใช้คำสั่ง cURL ใน Command Prompt หรือ Terminal เพื่อตั้งค่า Persistent Menu ใน Facebook Messenger:
@@ -229,11 +230,11 @@ curl -X POST "https://graph.facebook.com/v17.0/<your-page-id>/messenger_profile?
 }"
 ```
 
-แทนที่ <your-page-id> ด้วย Page ID ของคุณ.
+###แทนที่ <your-page-id> ด้วย Page ID ของคุณ.
 
-แทนที่ <your-access-token> ด้วย Page Access Token ของคุณ.
+###แทนที่ <your-access-token> ด้วย Page Access Token ของคุณ.
 
-แทนที่ <your-ngrok-url> ด้วย ngrok URL ที่ได้รับ.
+###แทนที่ <your-ngrok-url> ด้วย ngrok URL ที่ได้รับ.
 
 #หมายเหตุ ต้องให้ มีการตอบกลับจากTerminal ว่า 
 {"result":"success"}
