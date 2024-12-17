@@ -176,13 +176,12 @@ const fetchUserInfo = async (token) => {
   }
 };
 ```
-### การตั้งค่า Facebook Messenger Profile
+###  การตั้งค่า Facebook Messenger Profile
 ไปที่ Facebook Developer Console.
 เลือก Graph API Explorer จากเมนู Tools.
 เลือก App ที่ต้องการใช้งาน.
-###ใช้ Access Token เพื่อเรียก API.
-
-เพื่อเอามาใส่ ###<your-access-token>
+ใช้ Access Token เพื่อเรียก API.
+เพื่อเอามาใส่  <your-access-token>
 
 ### วิธีเช็ค Page ID โดยใช้ Graph API Explorer:
 ไปที่ Graph API Explorer.
@@ -197,9 +196,9 @@ const fetchUserInfo = async (token) => {
 ```bash
 /me/accounts
 ```
-เพื่อเอามาใส่ ###<your-page-id>
+เพื่อเอามาใส่ <your-page-id>
 
-แล้วจึงไปที่ Facebook Developer Console > Messenger > Messenger Profile.
+### แล้วจึงไปที่ Facebook Developer Console > Messenger > Messenger Profile.
 ใช้คำสั่ง cURL ใน Command Prompt หรือ Terminal เพื่อตั้งค่า Persistent Menu ใน Facebook Messenger:
 โดยเริ่มจากอันนี้ก่อนเพื่อGetStart
 ```bash
