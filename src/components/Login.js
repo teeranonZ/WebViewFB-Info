@@ -19,7 +19,7 @@ const Login = () => {
   const fetchUserInfo = async (token) => {
     try {
       const response = await fetch(
-        `https://graph.facebook.com/me?fields=id,name,picture,email&access_token=${token}` // เพิ่ม email
+        `https://graph.facebook.com/me?fields=id,name,picture,email&access_token=${token}` 
       );
       if (!response.ok) throw new Error("Failed to fetch user information.");
       const data = await response.json();
@@ -44,7 +44,7 @@ const Login = () => {
           </form>
           <div id="login-button">
             <a
-              href="https://www.facebook.com/v17.0/dialog/oauth?client_id=1247680383201599&redirect_uri=https://af9a-2405-9800-b550-1a21-edc5-6f54-1ca2-22c2.ngrok-free.app/user-info&response_type=token&scope=email,public_profile"
+              href="https://www.facebook.com/v17.0/dialog/oauth?client_id=1014772047079031&redirect_uri=https://34b2-2405-9800-b550-1a21-e95e-5dae-e464-4c1f.ngrok-free.app/user-info&response_type=token&scope=email,public_profile,pages_messaging"
             >
               Login
             </a>

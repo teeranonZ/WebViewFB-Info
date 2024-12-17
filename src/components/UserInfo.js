@@ -17,7 +17,7 @@ const UserInfo = () => {
   const fetchUserInfo = async (token) => {
     try {
       const response = await fetch(
-        `https://graph.facebook.com/me?fields=id,name,picture,email&access_token=${token}` // เพิ่ม email
+        `https://graph.facebook.com/me?fields=id,name,picture,email&access_token=${token}` 
       );
       if (!response.ok) throw new Error("Failed to fetch user information.");
       const data = await response.json();
@@ -38,7 +38,7 @@ const UserInfo = () => {
     userInfo.error ? (
       <p>{userInfo.error}</p>
     ) : (
-      <div className="user-info-container"> {/* ใช้คลาสนี้ */}
+      <div className="user-info-container"> 
         <img src={userInfo.picture.data.url} alt={userInfo.name} />
         <h2>Welcome !</h2>
         <p>Name: {userInfo.name}</p>
