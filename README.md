@@ -1,70 +1,189 @@
-# Getting Started with Create React App
+# Facebook WebView Info
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+โครงการนี้แสดงตัวอย่างการใช้ Facebook OAuth 2.0 เพื่อล็อกอินผู้ใช้งานและแสดงข้อมูลโปรไฟล์ใน WebView โดยใช้ React
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## คุณสมบัติของระบบ
 
-### `npm start`
+- **ระบบล็อกอิน Facebook**
+  - รองรับการล็อกอินผ่าน Facebook OAuth 2.0
+  - รับ Access Token และข้อมูลโปรไฟล์ผู้ใช้ เช่น ชื่อ, อีเมล, รูปภาพ และ User ID
+- **แสดงข้อมูลโปรไฟล์ผู้ใช้**
+  - แสดงข้อมูลโปรไฟล์ของผู้ใช้งานหลังจากล็อกอินสำเร็จ
+- **ระบบออกจากระบบ**
+  - สามารถกดปุ่ม Log Out เพื่อลบข้อมูลและกลับไปยังหน้าล็อกอิน
+- **ออกแบบให้รองรับอุปกรณ์ทุกชนิด (Responsive Design)**
+  - รองรับทั้งการใช้งานบนอุปกรณ์มือถือและเดสก์ท็อป
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## การติดตั้งและการใช้งาน
 
-### `npm test`
+### ความต้องการเบื้องต้น
+- Node.js (แนะนำเวอร์ชัน 14 ขึ้นไป)
+- บัญชีนักพัฒนาของ Facebook พร้อมตั้งค่าแอปใน [Facebook Developer Console](https://developers.facebook.com/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### ขั้นตอนการติดตั้ง
 
-### `npm run build`
+1. **คัดลอกโครงการ**
+   ```bash
+   git clone https://github.com/teeranonZ/demo1234.git
+   cd MY-APP123
+ติดตั้ง Dependencies
+bash
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ติดตั้งไลบรารีที่จำเป็น:
+   ```bash
+   npm install
+   ```
+ตั้งค่าไฟล์ .env
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+สร้างไฟล์ .env ในโฟลเดอร์หลักของโปรเจกต์
+เพิ่มค่าดังนี้:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ ```bash
+HTTPS=true
+```
 
-### `npm run eject`
+เริ่มต้นเซิร์ฟเวอร์
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+bash
+ ```bash
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+โครงสร้างโปรเจกต์
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Copy code
 
-## Learn More
+facebook-webview-login/
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+├── public/
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+│   ├── index.html
 
-### Code Splitting
+├── src/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+│   ├── components/
 
-### Analyzing the Bundle Size
+│   │   ├── Login.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+│   │   ├── UserInfo.js
 
-### Making a Progressive Web App
+│   ├── App.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+│   ├── index.js
 
-### Advanced Configuration
+│   ├── Login.css
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+│   ├── UserInfo.css
 
-### Deployment
+├── .env
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+├── package.json
 
-### `npm run build` fails to minify
+├── README.md
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+การใช้งาน
+เปิดแอปพลิเคชันในเบราว์เซอร์
+กดปุ่ม "Login" เพื่อเข้าสู่ระบบผ่าน Facebook
+หลังล็อกอินสำเร็จ จะสามารถดูข้อมูลโปรไฟล์ (ชื่อ, อีเมล, User ID และรูปภาพ) ได้
+กดปุ่ม "Log Out" เพื่อกลับไปยังหน้าล็อกอิน
+การตั้งค่าใน Facebook Developer Console
+สร้าง Facebook App
+
+ไปที่ Facebook Developer Console
+สร้างแอปใหม่และตั้งค่าให้เป็น Web App
+ตั้งค่า OAuth Redirect URI
+
+ไปที่ Settings > Basic
+เพิ่มค่า REACT_APP_REDIRECT_URI ใน Valid OAuth Redirect URIs
+เปิดใช้งาน Permissions
+
+เปิดสิทธิ์ email และ public_profile ใน Facebook Login Settings
+รับ App ID
+
+คัดลอก App ID และอัปเดตในตัวแปร REACT_APP_FACEBOOK_CLIENT_ID ในไฟล์ 
+
+Login.js
+
+
+Facebook App ID เป็นค่าที่ใช้เชื่อมต่อกับ Facebook API เพื่อรับข้อมูลผู้ใช้ของคุณ
+
+การเปลี่ยนค่าในโค้ด
+ในไฟล์ Login.js ให้แก้ไข client_id ในลิงก์ URL:
+
+
+```bash
+href="https://www.facebook.com/v17.0/dialog/oauth?client_id=<your-facebook-app-id>&redirect_uri=https://<your-ngrok-url>/user-info&response_type=token&scope=email,public_profile"
+```
+แทนที่ <your-facebook-app-id> ด้วย App ID ของคุณที่ได้จาก Facebook Developer Console.
+การตั้งค่าใน Facebook Developer Console
+ไปที่ Facebook Developer Console.
+เลือกแอปของคุณ และไปที่ Settings > Basic.
+ตรวจสอบและคัดลอก App ID.
+ใช้ App ID ที่คัดลอกมาแทนค่าในโค้ด.
+การเปลี่ยน ngrok URL
+ngrok ใช้สร้าง URL แบบ HTTPS สำหรับทดสอบแอปพลิเคชันใน WebView หรือ Facebook Login
+
+ด้วย URL ใหม่ที่ได้จาก ngrok.
+การตั้งค่า ngrok
+เปิดเทอร์มินัลและรันคำสั่ง:
+```bash
+ngrok http https://localhost:3000
+```
+คัดลอก URL แบบ HTTPS ที่แสดงขึ้น เช่น:
+
+```bash
+https://1234abcd.ngrok.io
+```
+แทนที่ URL ในโค้ด redirect_uri ด้วย URL ที่คัดลอกมา.
+
+ การอัปเดต Valid OAuth Redirect URIs
+Facebook กำหนดให้ URL ที่ใช้ต้องตรงกับค่าใน Valid OAuth Redirect URIs ที่กำหนดใน Facebook Developer Console
+
+ขั้นตอนการอัปเดต
+ไปที่ Facebook Developer Console.
+เลือกแอปของคุณ และไปที่ Facebook Login > Settings.
+ในส่วน Valid OAuth Redirect URIs:
+เพิ่ม URL ที่คุณใช้ในโค้ด เช่น:
+```bash
+https://1234abcd.ngrok.io/user-info
+```
+
+จัดการกระบวนการล็อกอินและดึง Access Token จาก Facebook
+UserInfo.js
+
+ดึงและแสดงข้อมูลโปรไฟล์ผู้ใช้งานจาก Facebook
+ตัวอย่างโค้ด
+การดึงข้อมูลโปรไฟล์
+
+
+
+```bash
+const fetchUserInfo = async (token) => {
+  try {
+    const response = await fetch(
+      `https://graph.facebook.com/me?fields=id,name,picture,email&access_token=${token}`
+    );
+    const data = await response.json();
+    setUserInfo(data);
+  } catch (error) {
+    console.error("Error fetching user info:", error);
+  }
+};
+```
+การออกจากระบบ
+javascript
+
+```bash
+const handleLogout = () => {
+  setUserInfo(null);
+  window.location.href = "/";
+};
+```
+### หมายเหตุ: ถ้าต้องการให้ผู้ใช้รายอื่นใช้งาน ต้องไปตั้งค่าใน บทบาท บัญชีนักพัฒนาของ Facebook พร้อมตั้งค่าแอปใน [Facebook Developer Console](https://developers.facebook.com/)
+เพื่อที่จะเพิ่มRole ในการให้บทบาทของแค่คนที่เพิ่ม Tester แต่ถ้า ต้องการให้ใช้งานได้ทุกคนต้องไปเปิด Live (เปลี่ยนจากDevelopMode เป็น Live )  และต้องตั้งค่า ยืนยัน ธุรกิจของบริษัท หรือ Platform Page เพื่อที่จะได้เปิดเป็น Local โดยที่ ไม่ค้องเพิ่ม Role ให้เปิดเป็น Public Project 
