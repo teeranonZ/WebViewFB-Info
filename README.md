@@ -177,8 +177,38 @@ const fetchUserInfo = async (token) => {
 };
 ```
 การตั้งค่า Facebook Messenger Profile
-ไปที่ Facebook Developer Console > Messenger > Messenger Profile.
+ไปที่ Facebook Developer Console.
+เลือก Graph API Explorer จากเมนู Tools.
+เลือก App ที่ต้องการใช้งาน.
+ใช้ Access Token เพื่อเรียก API.
+เพื่อเอามาใส่ <your-access-token>
+
+วิธีเช็ค Page ID โดยใช้ Graph API Explorer:
+ไปที่ Graph API Explorer.
+
+เลือก App ที่ต้องการใช้งาน.
+
+เลือก Get User Access Token หรือ Get Page Access Token (ถ้าคุณต้องการเชื่อมต่อกับเพจ).
+คำสั่งนี้จะดึงข้อมูลเกี่ยวกับเพจที่คุณเป็นผู้ดูแล และ Page ID จะอยู่ในผลลัพธ์ของการตอบกลับ.
+
+กด Submit และดูผลลัพธ์.
+ในช่อง API Endpoint ให้ใส่คำสั่งนี้:
+```bash
+/me/accounts
+```
+พื่อเอามาใส่ <your-page-id>
+
+แล้วจึงไปที่ Facebook Developer Console > Messenger > Messenger Profile.
 ใช้คำสั่ง cURL ใน Command Prompt หรือ Terminal เพื่อตั้งค่า Persistent Menu ใน Facebook Messenger:
+โดยเริ่มจากอันนี้ก่อนเพื่อGetStart
+```bash
+curl -X POST "https://graph.facebook.com/v17.0/438978469308554/messenger_profile?access_token=YOUR_NEW_ACCESS_TOKEN" ^
+-H "Content-Type: application/json" ^
+-d "{ \"get_started\": { \"payload\": \"GET_STARTED_PAYLOAD\" } }"
+```
+#หมายเหตุ ต้องให้ มีการตอบกลับจากTerminal ว่า 
+{"result":"success"}
+
 ```bash
 curl -X POST "https://graph.facebook.com/v17.0/<your-page-id>/messenger_profile?access_token=<your-access-token>" -H "Content-Type: application/json" -d "{
   \"persistent_menu\": [
@@ -198,9 +228,15 @@ curl -X POST "https://graph.facebook.com/v17.0/<your-page-id>/messenger_profile?
   ]
 }"
 ```
+
 แทนที่ <your-page-id> ด้วย Page ID ของคุณ.
+
 แทนที่ <your-access-token> ด้วย Page Access Token ของคุณ.
+
 แทนที่ <your-ngrok-url> ด้วย ngrok URL ที่ได้รับ.
+
+#หมายเหตุ ต้องให้ มีการตอบกลับจากTerminal ว่า 
+{"result":"success"}
 
 การออกจากระบบ
 javascript
