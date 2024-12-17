@@ -180,8 +180,7 @@ const fetchUserInfo = async (token) => {
 ไปที่ Facebook Developer Console.
 เลือก Graph API Explorer จากเมนู Tools.
 เลือก App ที่ต้องการใช้งาน.
-ใช้ Access Token เพื่อเรียก API.
-เพื่อเอามาใส่  <your-access-token>
+ใช้ Access Token เพื่อเรียก API เพื่อเอามาใส่  <your-access-token>
 
 ### วิธีเช็ค Page ID โดยใช้ Graph API Explorer:
 ไปที่ Graph API Explorer.
