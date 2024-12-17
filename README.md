@@ -28,7 +28,7 @@
 
 1. **คัดลอกโครงการ**
    ```bash
-   git clone https://github.com/teeranonZ/demo1234.git
+   git clone https://github.com/teeranonZ/WebViewFB-Info
    cd MY-APP123
 ติดตั้ง Dependencies
 bash
@@ -118,7 +118,7 @@ Facebook App ID เป็นค่าที่ใช้เชื่อมต่�
 
 
 ```bash
-href="https://www.facebook.com/v17.0/dialog/oauth?client_id=<your-facebook-app-id>&redirect_uri=https://<your-ngrok-url>/user-info&response_type=token&scope=email,public_profile"
+href="https://www.facebook.com/v17.0/dialog/oauth?client_id=<your-facebook-app-id>&redirect_uri=https://<your-ngrok-url>/user-info&response_type=token&scope=email,public_profile,pages_messaging"
 ```
 แทนที่ <your-facebook-app-id> ด้วย App ID ของคุณที่ได้จาก Facebook Developer Console.
 การตั้งค่าใน Facebook Developer Console
@@ -176,6 +176,32 @@ const fetchUserInfo = async (token) => {
   }
 };
 ```
+การตั้งค่า Facebook Messenger Profile
+ไปที่ Facebook Developer Console > Messenger > Messenger Profile.
+ใช้คำสั่ง cURL ใน Command Prompt หรือ Terminal เพื่อตั้งค่า Persistent Menu ใน Facebook Messenger:
+```bash
+curl -X POST "https://graph.facebook.com/v17.0/<your-page-id>/messenger_profile?access_token=<your-access-token>" -H "Content-Type: application/json" -d "{
+  \"persistent_menu\": [
+    {
+      \"locale\": \"default\",
+      \"composer_input_disabled\": false,
+      \"call_to_actions\": [
+        {
+          \"type\": \"web_url\",
+          \"title\": \"Open Home Page\",
+          \"url\": \"https://<your-ngrok-url>/\",
+          \"webview_height_ratio\": \"tall\",
+          \"messenger_extensions\": false
+        }
+      ]
+    }
+  ]
+}"
+```
+แทนที่ <your-page-id> ด้วย Page ID ของคุณ.
+แทนที่ <your-access-token> ด้วย Page Access Token ของคุณ.
+แทนที่ <your-ngrok-url> ด้วย ngrok URL ที่ได้รับ.
+
 การออกจากระบบ
 javascript
 
