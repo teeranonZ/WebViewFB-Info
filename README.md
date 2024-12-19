@@ -6,8 +6,14 @@
 
 ## คุณสมบัติของระบบ
 1. **ระบบล็อกอิน**
-   - รองรับการล็อกอินด้วยชื่อผู้ใช้และรหัสผ่าน พร้อมการเชื่อมต่อผ่าน Facebook WebView Login
-     <img src="https://cdn.discordapp.com/attachments/1036287077794463856/1318464710617858058/image.png?ex=67626b72&is=676119f2&hm=7630260fdef86af2f79fe744991b3ee2001463c749ff40cc1c115484029edd6e&](https://cdn.discordapp.com/attachments/1251726443940024402/1319184090297270332/Screenshot_2024-12-19_123426.png?ex=6765096c&is=6763b7ec&hm=8282899d2c72c8e93068bf536ee77525417d9ac168322f70f2e487bde064f639&)" alt="Facebook WebView Login" width="400" height="400" >
+   - รองรับการล็อกอินด้วยชื่อผู้ใช้และรหัสผ่าน พร้อมการเชื่อมต่อผ่าน Facebook Login
+     <img src="https://cdn.discordapp.com/attachments/1251726443940024402/1319184090297270332/Screenshot_2024-12-19_123426.png?ex=6765096c&is=6763b7ec&hm=8282899d2c72c8e93068bf536ee77525417d9ac168322f70f2e487bde064f639&" alt="Facebook WebView Login" width="400" height="400" >
+
+     <img src="https://cdn.discordapp.com/attachments/1251726443940024402/1319184090620104725/Screenshot_2024-12-19_123440.png?ex=6765096c&is=6763b7ec&hm=2265fa92f8b7c0f4834e995789cd53dc9e7b06f88a3c95b3c7a39135f651011a&" alt="Facebook WebView Login" width="400" height="400" >
+     
+2. **การแสดงโปรไฟล์ผู้ใช้**
+   - ดึงข้อมูลโปรไฟล์จาก FaceBook API เพื่อแสดงข้อมูล เช่น ชื่อผู้ใช้ รูปโปรไฟล์ อีเมล และข้อความสถานะ
+ <img src="https://media.discordapp.net/attachments/1251726443940024402/1319184090909376606/Screenshot_2024-12-19_130606.png?ex=6765096c&is=6763b7ec&hm=b09fe1c6ce698d975d698885307d42c2dba64fe628fc727099e1fdfd062aa294&=&format=webp&quality=lossless&width=710&height=662" alt="LINE Login Page" width="400" height="400">     
      
 ---
 
@@ -15,7 +21,10 @@
 
 ### ความต้องการเบื้องต้น
 - Node.js (แนะนำเวอร์ชัน 14 ขึ้นไป)
-- บัญชีนักพัฒนาของ Facebook พร้อมตั้งค่าแอปใน [Facebook Developer Console](https://developers.facebook.com/)
+- บัญชีนักพัฒนาของ Facebook พร้อมตั้งค่าแอปใน [Facebook Developer Console]
+-- react (เวอร์ชั่นที่พัฒนา ^18.3.1)
+- Node.js (https://nodejs.org/) (เวอร์ชั่นที่พัฒนา v14.20.0)
+- (https://developers.facebook.com/)
 
 ### ขั้นตอนการติดตั้ง
 
@@ -122,7 +131,35 @@ href="https://www.facebook.com/v17.0/dialog/oauth?client_id=<your-facebook-app-i
 การเปลี่ยน ngrok URL
 ngrok ใช้สร้าง URL แบบ HTTPS สำหรับทดสอบแอปพลิเคชันใน WebView หรือ Facebook Login
 
-ด้วย URL ใหม่ที่ได้จาก ngrok.
+## Ngrok
+
+
+## ขั้นตอนการติดตั้งและใช้งาน ngrok
+
+### 1. **เข้าสู่ระบบหรือสมัครสมาชิก**
+1. ไปที่เว็บไซต์ [ngrok.com](https://ngrok.com/).
+2. **Login** หากคุณมีบัญชีแล้ว หรือ **Sign Up** เพื่อสร้างบัญชีใหม่.
+
+
+### 2. **การติดตั้งและตั้งค่า ngrok**
+
+#### **ดาวน์โหลดและติดตั้ง ngrok**
+1. ไปที่หน้า **Setup & Installation** ของเว็บไซต์.
+2. ดาวน์โหลดไฟล์ที่เหมาะสมกับระบบปฏิบัติการของคุณ:
+   - สำหรับ Windows: **Download for Windows (64-Bit)**.
+   - สำหรับ macOS: **Download for Mac OS**.
+3. หลังจากดาวน์โหลดเสร็จแล้ว ให้ **Unzip** ไฟล์ในตำแหน่งที่ต้องการ.
+
+
+#### **การตั้งค่า Auth Token**
+1. ไปที่หน้า **Your Authtoken** บนเว็บไซต์ ngrok.
+2. คัดลอก **Auth Token** ที่ได้รับ.
+3. เปิด Command Prompt (หรือ Terminal) แล้วรันคำสั่ง:
+
+   ```bash
+   ngrok authtoken [โทเคนที่ได้มา]
+   ```
+- แทน [โทเคนที่ได้มา] ด้วย Auth Token ที่คุณคัดลอกมา.
 การตั้งค่า ngrok
 เปิดเทอร์มินัลและรันคำสั่ง:
 ```bash
