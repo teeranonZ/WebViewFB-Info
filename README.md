@@ -22,6 +22,12 @@
 [facebook-dev-img]: https://img.shields.io/badge/Facebook%20Developer-1877F2?style=for-the-badge&logo=facebook&logoColor=white
 [facebook-dev-url]: https://developers.facebook.com/
 
+
+[![Node.js][node-js-img]][node-js-url]
+
+[node-js-img]: https://img.shields.io/badge/Node.js-v14.21.3-339933?style=for-the-badge&logo=node.js&logoColor=white
+[node-js-url]: https://nodejs.org/en/
+
 ---
 
 ## คุณสมบัติของระบบ
