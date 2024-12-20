@@ -1,19 +1,39 @@
 # Facebook WebView Info
 
-โครงการนี้แสดงตัวอย่างการใช้ Facebook OAuth 2.0 เพื่อล็อกอินผู้ใช้งานและแสดงข้อมูลโปรไฟล์ใน WebView โดยใช้ React
+##### โครงการนี้แสดงตัวอย่างการใช้ Facebook OAuth 2.0 เพื่อล็อกอินผู้ใช้งานและแสดงข้อมูลโปรไฟล์ใน WebView โดยใช้ React
+---
+
+# Built With
+
+[![React][React.js]][React-url]
+
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+
+
+[![ngrok][ngrok-img]][ngrok-url]
+
+[ngrok-img]: https://img.shields.io/badge/ngrok-1F1E37?style=for-the-badge&logo=ngrok&logoColor=white
+[ngrok-url]: https://ngrok.com/
+
+
+[![Facebook Developer][facebook-dev-img]][facebook-dev-url]
+
+[facebook-dev-img]: https://img.shields.io/badge/Facebook%20Developer-1877F2?style=for-the-badge&logo=facebook&logoColor=white
+[facebook-dev-url]: https://developers.facebook.com/
 
 ---
 
 ## คุณสมบัติของระบบ
 1. **ระบบล็อกอิน**
-   - รองรับการล็อกอินด้วยชื่อผู้ใช้และรหัสผ่าน พร้อมการเชื่อมต่อผ่าน Facebook Login
-     <img src="https://cdn.discordapp.com/attachments/1251726443940024402/1319184090297270332/Screenshot_2024-12-19_123426.png?ex=6765096c&is=6763b7ec&hm=8282899d2c72c8e93068bf536ee77525417d9ac168322f70f2e487bde064f639&" alt="Facebook WebView Login" width="400" height="400" >
-
-     <img src="https://cdn.discordapp.com/attachments/1251726443940024402/1319184090620104725/Screenshot_2024-12-19_123440.png?ex=6765096c&is=6763b7ec&hm=2265fa92f8b7c0f4834e995789cd53dc9e7b06f88a3c95b3c7a39135f651011a&" alt="Facebook WebView Login" width="400" height="400" >
+         - รองรับการล็อกอินด้วยชื่อผู้ใช้และรหัสผ่าน พร้อมการเชื่อมต่อผ่าน Facebook Login
+      <img src="https://cdn.discordapp.com/attachments/1251726443940024402/1319184090297270332/Screenshot_2024-12-19_123426.png?ex=6765096c&is=6763b7ec&hm=8282899d2c72c8e93068bf536ee77525417d9ac168322f70f2e487bde064f639&" alt="Facebook WebView Login" width="400" height="400" >
+      
+      <img src="https://cdn.discordapp.com/attachments/1251726443940024402/1319184090620104725/Screenshot_2024-12-19_123440.png?ex=6765096c&is=6763b7ec&hm=2265fa92f8b7c0f4834e995789cd53dc9e7b06f88a3c95b3c7a39135f651011a&" alt="Facebook WebView Login" width="400" height="400" >
      
 2. **การแสดงโปรไฟล์ผู้ใช้**
-   - ดึงข้อมูลโปรไฟล์จาก FaceBook API เพื่อแสดงข้อมูล เช่น ชื่อผู้ใช้ รูปโปรไฟล์ อีเมล และข้อความสถานะ
- <img src="https://media.discordapp.net/attachments/1251726443940024402/1319184090909376606/Screenshot_2024-12-19_130606.png?ex=6765096c&is=6763b7ec&hm=b09fe1c6ce698d975d698885307d42c2dba64fe628fc727099e1fdfd062aa294&=&format=webp&quality=lossless&width=710&height=662" alt="LINE Login Page" width="400" height="400">     
+         - ดึงข้อมูลโปรไฟล์จาก FaceBook API เพื่อแสดงข้อมูล เช่น ชื่อผู้ใช้ รูปโปรไฟล์ อีเมล และไอดีผู้ใช้
+      <img src="https://media.discordapp.net/attachments/1251726443940024402/1319184090909376606/Screenshot_2024-12-19_130606.png?ex=6765096c&is=6763b7ec&hm=b09fe1c6ce698d975d698885307d42c2dba64fe628fc727099e1fdfd062aa294&=&format=webp&quality=lossless&width=710&height=662" alt="LINE Login Page" width="400" height="400">     
      
 ---
 
@@ -28,12 +48,38 @@
 
 ### ขั้นตอนการติดตั้ง
 
-1. **คัดลอกโครงการ**
-   ```bash
-   git clone https://github.com/teeranonZ/WebViewFB-Info
-   cd MY-APP123
-ติดตั้ง Dependencies
-bash
+คัดลอกโครงการ:
+```bash
+git clone https://github.com/teeranonZ/WebViewFB-Info
+```
+เข้าไปที่โปรเจค:
+```bash
+cd MY-APP123
+ ```
+
+
+ติดตั้งตัว Facebook JavaScript SDK ลงในไฟล์ HTML (public/index.html) 
+```bash
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js?v=16.0"></script>
+ ```
+ตัวอย่างการใช้ใน  HTML (public/index.html) 
+```bash
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My App</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <!-- Facebook SDK -->
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js?v=16.0"></script>
+</body>
+</html>
+
+```
 
 ติดตั้งไลบรารีที่จำเป็น:
    ```bash
@@ -58,35 +104,34 @@ npm start
 
 โครงสร้างโปรเจกต์
 
-Copy code
 
 facebook-webview-login/
 
 ├── public/
 
-│   ├── index.html
+│    ├── index.html
 
-├── src/
+├──  src/
 
-│   ├── components/
+│    ├── components/
 
-│   │   ├── Login.js
+│    │   ├── Login.js
 
-│   │   ├── UserInfo.js
+│    │   ├── UserInfo.js
 
-│   ├── App.js
+│    ├── App.js
 
-│   ├── index.js
+│    ├── index.js
 
-│   ├── Login.css
+│    ├── Login.css
 
-│   ├── UserInfo.css
+│    ├── UserInfo.css
 
-├── .env
+├──  .env
 
-├── package.json
+├──  package.json
 
-├── README.md
+├──  README.md
 
 
 การใช้งาน
@@ -96,6 +141,9 @@ facebook-webview-login/
 กดปุ่ม "Log Out" เพื่อกลับไปยังหน้าล็อกอิน
 การตั้งค่าใน Facebook Developer Console
 สร้าง Facebook App
+
+
+## Facebook Developer Console
 
 ไปที่ Facebook Developer Console
 สร้างแอปใหม่และตั้งค่าให้เป็น Web App
@@ -130,6 +178,7 @@ href="https://www.facebook.com/v17.0/dialog/oauth?client_id=<your-facebook-app-i
 ใช้ App ID ที่คัดลอกมาแทนค่าในโค้ด.
 การเปลี่ยน ngrok URL
 ngrok ใช้สร้าง URL แบบ HTTPS สำหรับทดสอบแอปพลิเคชันใน WebView หรือ Facebook Login
+
 
 ## Ngrok
 
