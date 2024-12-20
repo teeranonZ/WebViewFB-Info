@@ -115,23 +115,23 @@ facebook-webview-login/
 
 ├── public/
 
-│    ├── index.html
+│     ├── index.html
 
-├──  src/
+├──   src/
 
-│    ├── components/
+│     ├── components/
 
-│    │   ├── Login.js
+│     │   ├── Login.js
 
-│    │   ├── UserInfo.js
+│     │   ├── UserInfo.js
+ 
+│     ├── App.js
 
-│    ├── App.js
+│     ├── index.js
 
-│    ├── index.js
+│     ├── Login.css
 
-│    ├── Login.css
-
-│    ├── UserInfo.css
+│     ├── UserInfo.css
 
 ├──  .env
 
