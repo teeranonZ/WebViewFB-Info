@@ -39,7 +39,7 @@
      
 2. **การแสดงโปรไฟล์ผู้ใช้**
          - ดึงข้อมูลโปรไฟล์จาก FaceBook API เพื่อแสดงข้อมูล เช่น ชื่อผู้ใช้ รูปโปรไฟล์ อีเมล และไอดีผู้ใช้
-      <img src="https://media.discordapp.net/attachments/1251726443940024402/1319184090909376606/Screenshot_2024-12-19_130606.png?ex=6765096c&is=6763b7ec&hm=b09fe1c6ce698d975d698885307d42c2dba64fe628fc727099e1fdfd062aa294&=&format=webp&quality=lossless&width=710&height=662" alt="LINE Login Page" width="400" height="400">     
+      <img src="https://media.discordapp.net/attachments/1251726443940024402/1319184090909376606/Screenshot_2024-12-19_130606.png?ex=6765096c&is=6763b7ec&hm=b09fe1c6ce698d975d698885307d42c2dba64fe628fc727099e1fdfd062aa294&=&format=webp&quality=lossless&width=710&height=662" alt="Facebook WebView Login" width="400" height="400">     
      
 ---
 
