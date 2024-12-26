@@ -44,7 +44,7 @@ const Login = () => {
           </form>
           <div id="login-button">
             <a
-              href="https://www.facebook.com/v17.0/dialog/oauth?client_id=1014772047079031&redirect_uri=https://34b2-2405-9800-b550-1a21-e95e-5dae-e464-4c1f.ngrok-free.app/user-info&response_type=token&scope=email,public_profile,pages_messaging"
+              href="https://www.facebook.com/v17.0/dialog/oauth?client_id=1014772047079031&redirect_uri=https://c8ca-2405-9800-b550-1a21-497-3a63-c7f5-f3fb.ngrok-free.app/user-info&response_type=token&scope=email,public_profile,pages_messaging"
             >
               Login
             </a>
